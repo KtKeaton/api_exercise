@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_02_081226) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_02_085318) do
   create_table "cities", force: :cascade do |t|
     t.string "juhe_id"
     t.string "province"
@@ -20,6 +20,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_081226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["juhe_id"], name: "index_cities_on_juhe_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
