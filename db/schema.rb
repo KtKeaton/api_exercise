@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_02_085318) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_02_085512) do
   create_table "cities", force: :cascade do |t|
     t.string "juhe_id"
     t.string "province"
@@ -23,8 +23,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_085318) do
   end
 
   create_table "jobs", force: :cascade do |t|
+    t.string "active"
+    t.string "live"
+    t.datetime "first_published_at"
+    t.text "title"
+    t.string "location"
+    t.boolean "internal", default: false
+    t.boolean "external", default: false
+    t.text "content"
+    t.text "internal_content"
+    t.string "questions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index "\"demographic_question_set_id\"", name: "index_jobs_on_demographic_question_set_id"
+    t.index "\"job_id\"", name: "index_jobs_on_job_id"
+    t.index ["title"], name: "index_jobs_on_title"
   end
 
 end
